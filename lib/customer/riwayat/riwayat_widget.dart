@@ -161,42 +161,166 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                           ),
                                           shape: BoxShape.rectangle,
                                         ),
-                                        child: Stack(
-                                          children: [
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: Padding(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().id = getJsonField(
+                                              dataItem,
+                                              r'''$.id''',
+                                            );
+                                            setState(() {});
+
+                                            context.pushNamed('detailriwayat');
+                                          },
+                                          child: Stack(
+                                            children: [
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 20.0, 0.0, 0.0),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/calendar.png',
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        20.0, 20.0, 0.0, 0.0),
+                                                        80.0, 30.0, 0.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    getJsonField(
+                                                      dataItem,
+                                                      r'''$.pickup_date''',
+                                                    )?.toString(),
+                                                    'date',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        80.0, 60.0, 0.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    getJsonField(
+                                                      dataItem,
+                                                      r'''$.pickup_time''',
+                                                    )?.toString(),
+                                                    'time',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 100.0, 0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
                                                   child: Image.asset(
-                                                    'assets/images/calendar.png',
+                                                    'assets/images/price-tag_(1).png',
                                                     width: 50.0,
                                                     height: 50.0,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      80.0, 30.0, 0.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  getJsonField(
-                                                    dataItem,
-                                                    r'''$.pickup_date''',
-                                                  )?.toString(),
-                                                  'date',
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(80.0, 120.0,
+                                                          0.0, 20.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        dataItem,
+                                                        r'''$.total_price''',
+                                                      )?.toString(),
+                                                      'price',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        200.0, 65.0, 0.0, 0.0),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/weight-lifting.png',
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(140.0, 90.0,
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        dataItem,
+                                                        r'''$.total_weight''',
+                                                      )?.toString(),
+                                                      'weight',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -204,118 +328,11 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      80.0, 60.0, 0.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  getJsonField(
-                                                    dataItem,
-                                                    r'''$.pickup_time''',
-                                                  )?.toString(),
-                                                  'time',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 100.0, 0.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/price-tag_(1).png',
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        80.0, 120.0, 0.0, 20.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      dataItem,
-                                                      r'''$.total_price''',
-                                                    )?.toString(),
-                                                    'price',
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
                                                 ),
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      200.0, 65.0, 0.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/weight-lifting.png',
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        140.0, 90.0, 0.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      dataItem,
-                                                      r'''$.total_weight''',
-                                                    )?.toString(),
-                                                    'weight',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     );

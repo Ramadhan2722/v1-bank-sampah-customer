@@ -22,6 +22,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _userrole = prefs.getString('ff_userrole') ?? _userrole;
     });
+    _safeInit(() {
+      _id = prefs.getInt('ff_id') ?? _id;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -43,6 +46,13 @@ class FFAppState extends ChangeNotifier {
   set userrole(String value) {
     _userrole = value;
     prefs.setString('ff_userrole', value);
+  }
+
+  int _id = 0;
+  int get id => _id;
+  set id(int value) {
+    _id = value;
+    prefs.setInt('ff_id', value);
   }
 }
 

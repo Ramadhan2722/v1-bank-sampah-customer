@@ -565,6 +565,7 @@ class HistoryCall {
 class HistoryDetailCall {
   static Future<ApiCallResponse> call({
     String? token = '',
+    int? id,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'history detail',
