@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -49,12 +50,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'dashboard',
           path: '/dashboard',
-          builder: (context, params) => const DashboardWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'dashboard')
+              : const DashboardWidget(),
         ),
         FFRoute(
           name: 'penjadwalan',
           path: '/penjadwalan',
-          builder: (context, params) => const PenjadwalanWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'penjadwalan')
+              : const PenjadwalanWidget(),
         ),
         FFRoute(
           name: 'resetpassword',
@@ -64,17 +69,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'chat',
           path: '/chat',
-          builder: (context, params) => const ChatWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'chat') : const ChatWidget(),
         ),
         FFRoute(
           name: 'profile',
           path: '/profile',
-          builder: (context, params) => const ProfileWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'profile')
+              : const ProfileWidget(),
         ),
         FFRoute(
           name: 'pointabung',
           path: '/pointabung',
-          builder: (context, params) => const PointabungWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'pointabung')
+              : const PointabungWidget(),
         ),
         FFRoute(
           name: 'tarikpoin',
@@ -84,7 +94,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'riwayat',
           path: '/riwayat',
-          builder: (context, params) => const RiwayatWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'riwayat')
+              : const RiwayatWidget(),
         ),
         FFRoute(
           name: 'detailriwayat',

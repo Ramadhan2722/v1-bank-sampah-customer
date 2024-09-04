@@ -779,8 +779,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ],
                     ),
                   ),
-                  const Stack(
-                    children: [],
+                  const Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Stack(
+                      children: [],
+                    ),
                   ),
                 ],
               ),

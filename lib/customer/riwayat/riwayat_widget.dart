@@ -121,20 +121,20 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
 
                             return Builder(
                               builder: (context) {
-                                final data = getJsonField(
-                                  listViewHistoryResponse.jsonBody,
-                                  r'''$.data''',
-                                ).toList();
+                                final history = HistoryCall.data(
+                                      listViewHistoryResponse.jsonBody,
+                                    )?.toList() ??
+                                    [];
 
                                 return ListView.separated(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
-                                  itemCount: data.length,
+                                  itemCount: history.length,
                                   separatorBuilder: (_, __) =>
                                       const SizedBox(height: 10.0),
-                                  itemBuilder: (context, dataIndex) {
-                                    final dataItem = data[dataIndex];
+                                  itemBuilder: (context, historyIndex) {
+                                    final historyItem = history[historyIndex];
                                     return Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 20.0),
@@ -168,7 +168,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             FFAppState().id = getJsonField(
-                                              dataItem,
+                                              historyItem,
                                               r'''$.id''',
                                             );
                                             setState(() {});
@@ -204,7 +204,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     getJsonField(
-                                                      dataItem,
+                                                      historyItem,
                                                       r'''$.pickup_date''',
                                                     )?.toString(),
                                                     'date',
@@ -227,7 +227,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     getJsonField(
-                                                      dataItem,
+                                                      historyItem,
                                                       r'''$.pickup_time''',
                                                     )?.toString(),
                                                     'time',
@@ -269,7 +269,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                                   child: Text(
                                                     valueOrDefault<String>(
                                                       getJsonField(
-                                                        dataItem,
+                                                        historyItem,
                                                         r'''$.total_price''',
                                                       )?.toString(),
                                                       'price',
@@ -314,7 +314,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                                   child: Text(
                                                     valueOrDefault<String>(
                                                       getJsonField(
-                                                        dataItem,
+                                                        historyItem,
                                                         r'''$.total_weight''',
                                                       )?.toString(),
                                                       'weight',

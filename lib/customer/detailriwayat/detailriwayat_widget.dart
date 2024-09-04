@@ -78,170 +78,166 @@ class _DetailriwayatWidgetState extends State<DetailriwayatWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Flexible(
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: HistoryDetailCall.call(
-                      id: FFAppState().id,
-                      token: FFAppState().token,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
+                FutureBuilder<ApiCallResponse>(
+                  future: HistoryDetailCall.call(
+                    token: FFAppState().token,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
                             ),
                           ),
-                        );
-                      }
-                      final stackHistoryDetailResponse = snapshot.data!;
+                        ),
+                      );
+                    }
+                    final stackHistoryDetailResponse = snapshot.data!;
 
-                      return Builder(
-                        builder: (context) {
-                          final data = HistoryDetailCall.data(
-                                stackHistoryDetailResponse.jsonBody,
-                              )?.toList() ??
-                              [];
+                    return Builder(
+                      builder: (context) {
+                        final historydetail = HistoryDetailCall.data(
+                              stackHistoryDetailResponse.jsonBody,
+                            )?.toList() ??
+                            [];
 
-                          return Stack(
-                            children: List.generate(data.length, (dataIndex) {
-                              final dataItem = data[dataIndex];
-                              return Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 50.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 200.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(20.0),
-                                        bottomRight: Radius.circular(20.0),
-                                        topLeft: Radius.circular(20.0),
-                                        topRight: Radius.circular(20.0),
-                                      ),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 50.0, 0.0, 0.0),
-                                            child: Text(
-                                              'NOMOR ORDER',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    fontSize: 20.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
+                        return Stack(
+                          children: List.generate(historydetail.length,
+                              (historydetailIndex) {
+                            final historydetailItem =
+                                historydetail[historydetailIndex];
+                            return Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 50.0, 0.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 200.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
                                         ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 80.0, 0.0, 0.0),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                getJsonField(
-                                                  dataItem,
-                                                  r'''$.number_order''',
-                                                )?.toString(),
-                                                'number order',
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    70.0, 110.0, 0.0, 0.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/map.png',
-                                                width: 60.0,
-                                                height: 60.0,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 140.0, 0.0, 0.0),
-                                            child: Text(
-                                              getJsonField(
-                                                dataItem,
-                                                r'''$.status''',
-                                              ).toString(),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                      )
+                                    ],
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20.0),
+                                      bottomRight: Radius.circular(20.0),
+                                      topLeft: Radius.circular(20.0),
+                                      topRight: Radius.circular(20.0),
                                     ),
                                   ),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  20.0, 50.0, 0.0, 0.0),
+                                          child: Text(
+                                            'NOMOR ORDER',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 80.0, 0.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              getJsonField(
+                                                historydetailItem,
+                                                r'''$.number_order''',
+                                              )?.toString(),
+                                              'number_order',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(-1.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  70.0, 110.0, 0.0, 0.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/map.png',
+                                              width: 60.0,
+                                              height: 60.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 140.0, 0.0, 0.0),
+                                          child: Text(
+                                            getJsonField(
+                                              historydetailItem,
+                                              r'''$.status''',
+                                            ).toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              );
-                            }),
-                          );
-                        },
-                      );
-                    },
-                  ),
+                              ),
+                            );
+                          }),
+                        );
+                      },
+                    );
+                  },
                 ),
               ],
             ),

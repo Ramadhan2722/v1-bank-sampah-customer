@@ -351,7 +351,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                          keyboardType: TextInputType.visiblePassword,
                           validator: _model.passwordTextControllerValidator
                               .asValidator(context),
                         ),
@@ -428,7 +427,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                          keyboardType: TextInputType.visiblePassword,
                           validator: _model
                               .confirmpasswordTextControllerValidator
                               .asValidator(context),
@@ -493,7 +491,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                          keyboardType: TextInputType.streetAddress,
                           validator: _model.addressTextControllerValidator
                               .asValidator(context),
                         ),
@@ -557,7 +554,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.phone,
                           validator: _model.nowaTextControllerValidator
                               .asValidator(context),
                         ),

@@ -297,6 +297,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               20.0, 20.0, 20.0, 20.0),
                                       prefixIcon: const Icon(
                                         Icons.email_outlined,
+                                        color: Color(0xFF43A047),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -398,6 +399,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               20.0, 20.0, 20.0, 20.0),
                                       prefixIcon: const Icon(
                                         Icons.phone_iphone,
+                                        color: Color(0xFF43A047),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -499,6 +501,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               20.0, 20.0, 20.0, 20.0),
                                       prefixIcon: const Icon(
                                         Icons.add_home_outlined,
+                                        color: Color(0xFF43A047),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)

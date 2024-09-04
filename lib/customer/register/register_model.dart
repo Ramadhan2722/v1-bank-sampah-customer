@@ -44,9 +44,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
       return 'Field is required';
     }
 
-    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
-      return 'Must start with a letter and can only contain letters, digits and - or _.';
-    }
     return null;
   }
 
