@@ -333,7 +333,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               Icons.lock_person,
                             ),
                             suffixIcon: InkWell(
-                              onTap: () => setState(
+                              onTap: () => safeSetState(
                                 () => _model.passwordVisibility =
                                     !_model.passwordVisibility,
                               ),
@@ -409,7 +409,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               Icons.lock_person,
                             ),
                             suffixIcon: InkWell(
-                              onTap: () => setState(
+                              onTap: () => safeSetState(
                                 () => _model.confirmpasswordVisibility =
                                     !_model.confirmpasswordVisibility,
                               ),
@@ -564,7 +564,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            _model.registercustomer =
+                            _model.apiResultade =
                                 await RegisterCustomerCall.call(
                               nik: _model.nikTextController.text,
                               email: _model.emailTextController.text,
@@ -579,49 +579,19 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             if (_model.passwordTextController.text ==
                                 _model.confirmpasswordTextController.text) {
                               FFAppState().token = getJsonField(
-                                (_model.registercustomer?.jsonBody ?? ''),
+                                (_model.apiResultade?.jsonBody ?? ''),
                                 r'''$.access_token''',
                               ).toString();
-                              setState(() {});
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Registrasi Berhasil',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
+                              safeSetState(() {});
 
                               context.pushNamed('login');
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Registrasi Gagal',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
                             }
-
-                            if ((_model.registercustomer?.succeeded ?? true)) {
+                            if ((_model.apiResultade?.succeeded ?? true)) {
                               FFAppState().token = getJsonField(
-                                (_model.registercustomer?.jsonBody ?? ''),
+                                (_model.apiResultade?.jsonBody ?? ''),
                                 r'''$.access_token''',
                               ).toString();
-                              setState(() {});
+                              safeSetState(() {});
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -655,7 +625,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               );
                             }
 
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           text: 'Registrasi',
                           options: FFButtonOptions(

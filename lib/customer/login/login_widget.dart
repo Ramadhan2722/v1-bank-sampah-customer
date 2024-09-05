@@ -140,7 +140,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             Icons.lock_person,
                           ),
                           suffixIcon: InkWell(
-                            onTap: () => setState(
+                            onTap: () => safeSetState(
                               () => _model.passwordVisibility =
                                   !_model.passwordVisibility,
                             ),
@@ -245,7 +245,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               (_model.logincustomer?.jsonBody ?? ''),
                               r'''$.access_token''',
                             ).toString();
-                            setState(() {});
+                            safeSetState(() {});
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -263,7 +263,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                             context.pushNamed('dashboard');
                           } else {
-                            setState(() {
+                            safeSetState(() {
                               _model.emailTextController?.clear();
                               _model.passwordTextController?.clear();
                             });
@@ -283,7 +283,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             );
                           }
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Masuk',
                         options: FFButtonOptions(

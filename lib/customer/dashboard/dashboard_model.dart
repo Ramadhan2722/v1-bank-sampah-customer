@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (create schedule one click)] action in Container widget.
   ApiCallResponse? apiResultbro;
   // Stores action output result for [Backend Call - API (logout customer)] action in keluar widget.

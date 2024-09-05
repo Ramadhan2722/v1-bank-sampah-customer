@@ -171,7 +171,7 @@ class _RiwayatWidgetState extends State<RiwayatWidget> {
                                               historyItem,
                                               r'''$.id''',
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
 
                                             context.pushNamed('detailriwayat');
                                           },

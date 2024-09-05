@@ -505,7 +505,7 @@ class _PenjadwalanWidgetState extends State<PenjadwalanWidget> {
                                     (_model.createschedule?.jsonBody ?? ''),
                                   )!
                                           .toString();
-                                  setState(() {});
+                                  safeSetState(() {});
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -541,7 +541,7 @@ class _PenjadwalanWidgetState extends State<PenjadwalanWidget> {
                                   );
                                 }
 
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               text: 'Simpan',
                               options: FFButtonOptions(

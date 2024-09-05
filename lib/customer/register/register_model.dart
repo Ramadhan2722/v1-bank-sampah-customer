@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for nik widget.
   FocusNode? nikFocusNode;
@@ -108,7 +107,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   }
 
   // Stores action output result for [Backend Call - API (register customer)] action in Button widget.
-  ApiCallResponse? registercustomer;
+  ApiCallResponse? apiResultade;
 
   @override
   void initState(BuildContext context) {

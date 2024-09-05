@@ -81,6 +81,7 @@ class _DetailriwayatWidgetState extends State<DetailriwayatWidget> {
                 FutureBuilder<ApiCallResponse>(
                   future: HistoryDetailCall.call(
                     token: FFAppState().token,
+                    historyId: FFAppState().id,
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.

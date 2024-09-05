@@ -21,11 +21,11 @@ class RegisterCustomerCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "nik": "$nik",
+  "ktp": "$nik",
   "email": "$email",
   "name": "$name",
   "password": "$password",
-  "confirm password": "$confirmPassword",
+  "confirm_password": "$confirmPassword",
   "address": "$address",
   "phone": "$phone",
   "respon": $respon
@@ -565,17 +565,19 @@ class HistoryCall {
 class HistoryDetailCall {
   static Future<ApiCallResponse> call({
     String? token = '',
-    int? id,
+    int? historyId,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'history detail',
       apiUrl:
-          'https://stmik-banksampah.neumediradev.my.id/api/dashboard/schedule/history/6024',
+          'https://stmik-banksampah.neumediradev.my.id/api/dashboard/schedule/history/$historyId',
       callType: ApiCallType.GET,
       headers: {
         'Authorization': 'Bearer $token',
       },
-      params: {},
+      params: {
+        'historyId': historyId,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

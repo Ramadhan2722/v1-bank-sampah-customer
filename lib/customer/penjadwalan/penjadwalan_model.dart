@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class PenjadwalanModel extends FlutterFlowModel<PenjadwalanWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   DateTime? datePicked1;
   DateTime? datePicked2;

@@ -496,7 +496,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       ),
                                                       'pesan',
                                                     );
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
@@ -540,7 +540,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     );
                                                   }
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   width: 100.0,
@@ -732,7 +732,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     }
                                   }
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: 'Keluar',
                                 icon: const Icon(
