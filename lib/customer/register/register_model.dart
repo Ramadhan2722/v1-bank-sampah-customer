@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'register_widget.dart' show RegisterWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
@@ -97,6 +98,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   // State field(s) for nowa widget.
   FocusNode? nowaFocusNode;
   TextEditingController? nowaTextController;
+  final nowaMask = MaskTextInputFormatter(mask: '+62 #####################');
   String? Function(BuildContext, String?)? nowaTextControllerValidator;
   String? _nowaTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {

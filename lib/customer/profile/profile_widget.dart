@@ -253,13 +253,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           topRight: Radius.circular(20.0),
                                         ),
                                       ),
-                                      focusedBorder: UnderlineInputBorder(
+                                      focusedBorder: const UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: Color(0xFF43A047),
                                           width: 2.0,
                                         ),
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
                                           topLeft: Radius.circular(20.0),
@@ -355,13 +354,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           topRight: Radius.circular(20.0),
                                         ),
                                       ),
-                                      focusedBorder: UnderlineInputBorder(
+                                      focusedBorder: const UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: Color(0xFF43A047),
                                           width: 2.0,
                                         ),
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
                                           topLeft: Radius.circular(20.0),
@@ -457,13 +455,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           topRight: Radius.circular(20.0),
                                         ),
                                       ),
-                                      focusedBorder: UnderlineInputBorder(
+                                      focusedBorder: const UnderlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: Color(0xFF43A047),
                                           width: 2.0,
                                         ),
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
                                           topLeft: Radius.circular(20.0),
