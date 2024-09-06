@@ -41,7 +41,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   String? Function(BuildContext, String?)? usernameTextControllerValidator;
   String? _usernameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return 'Wajib diisi';
     }
 
     return null;
